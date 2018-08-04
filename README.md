@@ -3,11 +3,11 @@
 Hero is a handy, fast and powerful go template engine, which pre-compiles the html templates to go code.
 It has been used in production environment in [bthub.io](http://bthub.io).
 
-[![GoDoc](https://godoc.org/github.com/shiyanhui/hero?status.svg)](https://godoc.org/github.com/shiyanhui/hero)
-[![Go Report Card](https://goreportcard.com/badge/github.com/shiyanhui/hero)](https://goreportcard.com/report/github.com/shiyanhui/hero)
-[![Travis CI](https://travis-ci.org/shiyanhui/hero.svg?branch=master)](https://travis-ci.org/shiyanhui/hero.svg?branch=master)
+[![GoDoc](https://godoc.org/github.com/manvalls/hero?status.svg)](https://godoc.org/github.com/manvalls/hero)
+[![Go Report Card](https://goreportcard.com/badge/github.com/manvalls/hero)](https://goreportcard.com/report/github.com/manvalls/hero)
+[![Travis CI](https://travis-ci.org/manvalls/hero.svg?branch=master)](https://travis-ci.org/manvalls/hero.svg?branch=master)
 
-[中文文档](https://github.com/shiyanhui/hero/blob/master/README_CN.md)
+[中文文档](https://github.com/manvalls/hero/blob/master/README_CN.md)
 
 - [Features](#features)
 - [Install](#install)
@@ -35,7 +35,7 @@ You can find more details and benchmarks from that project.
 ## Install
 
 ```shell
-go get github.com/shiyanhui/hero/hero
+go get github.com/manvalls/hero/hero
 
 # Hero needs `goimports` to format the generated codes.
 go get golang.org/x/tools/cmd/goimports

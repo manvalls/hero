@@ -92,7 +92,7 @@ package template
 import (
 	"bytes"
 
-	"github.com/shiyanhui/hero"
+	"github.com/manvalls/hero"
 )
 
 func Add(a, b int) int {
@@ -137,7 +137,7 @@ package template
 import (
 	"io"
 
-	"github.com/shiyanhui/hero"
+	"github.com/manvalls/hero"
 )
 
 func UserListToWriter(userList []string, w io.Writer) {
@@ -181,7 +181,7 @@ package template
 import (
 	"io"
 
-	"github.com/shiyanhui/hero"
+	"github.com/manvalls/hero"
 )
 
 func UserListToWriterWithResult(userList []string, w io.Writer) (n int, err error) {

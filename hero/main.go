@@ -10,7 +10,7 @@ import (
 	"syscall"
 
 	"github.com/howeyc/fsnotify"
-	"github.com/shiyanhui/hero"
+	"github.com/manvalls/hero"
 )
 
 var (

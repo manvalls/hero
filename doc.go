@@ -3,10 +3,10 @@ package hero
 // Hero is a handy, fast and powerful go template engine, which pre-compiles the html templtes to go code.
 // It has been used in production environment in [bthub.io](http://bthub.io).
 //
-// [![GoDoc](https://godoc.org/github.com/shiyanhui/hero?status.svg)](https://godoc.org/github.com/shiyanhui/hero)
-// [![Go Report Card](https://goreportcard.com/badge/github.com/shiyanhui/hero)](https://goreportcard.com/report/github.com/shiyanhui/hero)
+// [![GoDoc](https://godoc.org/github.com/manvalls/hero?status.svg)](https://godoc.org/github.com/manvalls/hero)
+// [![Go Report Card](https://goreportcard.com/badge/github.com/manvalls/hero)](https://goreportcard.com/report/github.com/manvalls/hero)
 //
-// [中文文档](https://github.com/shiyanhui/hero/blob/master/README_CN.md)
+// [中文文档](https://github.com/manvalls/hero/blob/master/README_CN.md)
 //
 // - [Features](#features)
 // - [Install](#install)
@@ -32,8 +32,8 @@ package hero
 //
 // ## Install
 //
-//     go get github.com/shiyanhui/hero
-//     go install github.com/shiyanhui/hero/hero
+//     go get github.com/manvalls/hero
+//     go install github.com/manvalls/hero/hero
 //
 // ## Usage
 //
@@ -119,7 +119,7 @@ package hero
 //
 // 	"app/template"
 //
-//     "github.com/shiyanhui/hero"
+//     "github.com/manvalls/hero"
 // )
 //
 // func main() {

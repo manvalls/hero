@@ -2,8 +2,8 @@
 
 Hero是一个高性能、强大并且易用的go模板引擎，工作原理是把模板预编译为go代码。Hero目前已经在[bthub.io](http://bthub.io)的线上环境上使用。
 
-[![GoDoc](https://godoc.org/github.com/shiyanhui/hero?status.svg)](https://godoc.org/github.com/shiyanhui/hero)
-[![Go Report Card](https://goreportcard.com/badge/github.com/shiyanhui/hero)](https://goreportcard.com/report/github.com/shiyanhui/hero)
+[![GoDoc](https://godoc.org/github.com/manvalls/hero?status.svg)](https://godoc.org/github.com/manvalls/hero)
+[![Go Report Card](https://goreportcard.com/badge/github.com/manvalls/hero)](https://goreportcard.com/report/github.com/manvalls/hero)
 
 - [Features](#features)
 - [Install](#install)
@@ -30,8 +30,8 @@ Hero在目前已知的模板引擎中是速度是最快的，并且内存使用�
 
 ## Install
 
-    go get github.com/shiyanhui/hero
-    go get github.com/shiyanhui/hero/hero
+    go get github.com/manvalls/hero
+    go get github.com/manvalls/hero/hero
 
     // Hero需要goimports处理生成的go代码，所以需要安装goimports.
     go get golang.org/x/tools/cmd/goimports
@@ -115,7 +115,7 @@ import (
 	"bytes"
 	"net/http"
 
-	"github.com/shiyanhui/hero/examples/app/template"
+	"github.com/manvalls/hero/examples/app/template"
 )
 
 func main() {

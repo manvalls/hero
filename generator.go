@@ -258,7 +258,7 @@ func Generate(source, dest, pkgName string, extensions []string) {
 				import "html"
 				import "unsafe"
 
-				import "github.com/shiyanhui/hero"
+				import "github.com/manvalls/hero"
 			`)
 
 			imports := n.childrenByType(TypeImport)

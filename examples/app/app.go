@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/shiyanhui/hero/examples/app/template"
+	"github.com/manvalls/hero/examples/app/template"
 )
 
 func main() {
