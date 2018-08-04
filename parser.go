@@ -82,8 +82,12 @@ var dependencies *sort
 func init() {
 	cleanGlobal()
 
+	minifier.Add("text/html", &html.Minifier{
+		KeepDefaultAttrVals: true,
+		KeepDocumentTags:    true,
+	})
+
 	minifier.AddFunc("text/css", css.Minify)
-	minifier.AddFunc("text/html", html.Minify)
 	minifier.AddFunc("text/javascript", js.Minify)
 	minifier.AddFunc("image/svg+xml", svg.Minify)
 	minifier.AddFuncRegexp(regexp.MustCompile("[/+]json$"), json.Minify)
