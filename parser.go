@@ -6,7 +6,18 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
+
+	"github.com/tdewolff/minify"
+	"github.com/tdewolff/minify/css"
+	"github.com/tdewolff/minify/html"
+	"github.com/tdewolff/minify/js"
+	"github.com/tdewolff/minify/json"
+	"github.com/tdewolff/minify/svg"
+	"github.com/tdewolff/minify/xml"
 )
+
+var minifier = minify.New()
 
 const (
 	TypeImport = iota
@@ -70,6 +81,13 @@ var dependencies *sort
 
 func init() {
 	cleanGlobal()
+
+	minifier.AddFunc("text/css", css.Minify)
+	minifier.AddFunc("text/html", html.Minify)
+	minifier.AddFunc("text/javascript", js.Minify)
+	minifier.AddFunc("image/svg+xml", svg.Minify)
+	minifier.AddFuncRegexp(regexp.MustCompile("[/+]json$"), json.Minify)
+	minifier.AddFuncRegexp(regexp.MustCompile("[/+]xml$"), xml.Minify)
 }
 
 func cleanGlobal() {
@@ -363,6 +381,11 @@ func parseFile(dir, subpath string) *node {
 	}
 
 	content, err := ioutil.ReadFile(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	content, err = minifier.Bytes("text/html", content)
 	if err != nil {
 		log.Fatal(err)
 	}
