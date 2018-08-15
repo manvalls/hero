@@ -259,6 +259,7 @@ func Generate(source, dest, pkgName string, extensions []string) {
 				import "unsafe"
 
 				import "github.com/manvalls/hero"
+				import "github.com/manvalls/wit"
 			`)
 
 			imports := n.childrenByType(TypeImport)
@@ -281,33 +282,55 @@ func Generate(source, dest, pkgName string, extensions []string) {
 			buffer.WriteString(`{
 			`)
 
-			paramName, paramType, err := parseParams(funcDecl)
-			checkError(err)
+			results := parseResults(funcDecl)
 
-			if paramType == TypeIOWriter {
+			if reflect.DeepEqual(results, []string{"&{wit Factory}"}) {
 				bufName := "_buffer"
 
 				buffer.WriteString(
 					fmt.Sprintf(
-						"%s := hero.GetBuffer()\ndefer hero.PutBuffer(%s)\n",
-						bufName, bufName,
+						"return wit.FromReaderFactory(func() io.Reader {\n%s := &bytes.Buffer{}\n",
+						bufName,
 					),
 				)
-				gen(n, buffer, bufName)
 
-				results, ret := parseResults(funcDecl), ""
-				if reflect.DeepEqual(results, []string{"int", "error"}) {
-					ret = "return"
-				}
+				gen(n, buffer, bufName)
 
 				buffer.WriteString(
 					fmt.Sprintf(
-						"%s %s.Write(%s.Bytes())\n",
-						ret, paramName, bufName,
+						"return %s\n})",
+						bufName,
 					),
 				)
 			} else {
-				gen(n, buffer, paramName)
+				paramName, paramType, err := parseParams(funcDecl)
+				checkError(err)
+
+				if paramType == TypeIOWriter {
+					bufName := "_buffer"
+
+					buffer.WriteString(
+						fmt.Sprintf(
+							"%s := hero.GetBuffer()\ndefer hero.PutBuffer(%s)\n",
+							bufName, bufName,
+						),
+					)
+					gen(n, buffer, bufName)
+
+					ret := ""
+					if reflect.DeepEqual(results, []string{"int", "error"}) {
+						ret = "return"
+					}
+
+					buffer.WriteString(
+						fmt.Sprintf(
+							"%s %s.Write(%s.Bytes())",
+							ret, paramName, bufName,
+						),
+					)
+				} else {
+					gen(n, buffer, paramName)
+				}
 			}
 
 			buffer.WriteString(`
