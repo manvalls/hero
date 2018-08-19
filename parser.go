@@ -85,6 +85,7 @@ func init() {
 	minifier.Add("text/html", &html.Minifier{
 		KeepDefaultAttrVals: true,
 		KeepDocumentTags:    true,
+		KeepEndTags:         true,
 	})
 
 	minifier.AddFunc("text/css", css.Minify)
