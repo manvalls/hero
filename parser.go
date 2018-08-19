@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"regexp"
 
+	"github.com/manvalls/minify/html"
 	"github.com/tdewolff/minify"
 	"github.com/tdewolff/minify/css"
-	"github.com/tdewolff/minify/html"
 	"github.com/tdewolff/minify/js"
 	"github.com/tdewolff/minify/json"
 	"github.com/tdewolff/minify/svg"
